@@ -3,16 +3,14 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: process.env.NODE_ENV === "production" ? "/DeamHomes.github.io/" : "/", 
   plugins: [react()],
   server: {
     port: 5173,
-    // 🔌 Dev proxy: front-end calls `/api/...` → proxied to your backend
     proxy: {
       "/api": {
-        target: "http://localhost:4000", // 👈 backend port
+        target: "http://localhost:4000",
         changeOrigin: true,
-        // If your backend is strict about host headers, you can add:
-        // headers: { "X-Forwarded-Host": "localhost:5173" },
       },
     },
   },
@@ -26,7 +24,6 @@ export default defineConfig({
       external: [],
       output: {
         manualChunks: (id) => {
-          // Create a separate chunk for react-helmet-async
           if (id.includes("node_modules/react-helmet-async")) {
             return "react-helmet-async";
           }
