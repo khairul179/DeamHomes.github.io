@@ -14,7 +14,7 @@ export const teamMembers = [
       },
     },
     {
-      name: 'KHAIRUL Vaghela',
+      name: 'KHAIRUL ISLAM',
       position: 'Chief Technology Officer',
       bio: "Tech innovator driving our platform's cutting-edge solutions.",
       image: KHAIRULimage,

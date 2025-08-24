@@ -10,7 +10,7 @@
     "build": "npm install",
     "render-build": "npm install && npm run build"
   },
-  "author": "KHAIRUL Vaghela",
+  "author": "KHAIRUL ISLAM",
   "license": "ISC",
   "dependencies": {
     "@azure-rest/ai-inference": "^1.0.0-beta.5",

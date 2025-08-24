@@ -542,7 +542,7 @@ DreamHomes/
 For support and questions:
 
 - **GitHub Issues**: [Create an issue](https://github.com/KHAIRUL412/dreamhomes-Website/issues)
-- **Email**: KHAIRULvaghela12@gmail.com
+- **Email**: KHAIRULISLAM12@gmail.com
 - **Documentation**: Check README.md files in each directory
 
 ---
@@ -554,6 +554,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-  <p>Made with ❤️ by <a href="https://github.com/KHAIRUL412">KHAIRUL Vaghela</a></p>
+  <p>Made with ❤️ by <a href="https://github.com/KHAIRUL412">KHAIRUL ISLAM</a></p>
   <p>⭐ If you found this project helpful, please give it a star!</p>
 </div>
