@@ -1,40 +1,64 @@
-import path from "path";
+// frontend/vite.config.js
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-export default defineConfig({
-  base: process.env.NODE_ENV === "production" ? "/DeamHomes.github.io/" : "/", 
-  plugins: [react()],
-  server: {
-    port: 5173,
-    proxy: {
-      "/api": {
-        target: "http://localhost:4000",
-        changeOrigin: true,
-      },
-    },
-  },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  build: {
-    rollupOptions: {
-      external: [],
-      output: {
-        manualChunks: (id) => {
-          if (id.includes("node_modules/react-helmet-async")) {
-            return "react-helmet-async";
-          }
+// ESM-safe __dirname
+import { fileURLToPath } from "node:url";
+import { dirname, resolve } from "node:path";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default defineConfig(({ mode }) => {
+  const isProd = mode === "production";
+
+  return {
+    // Correct base for GitHub Pages project site:
+    // https://khairul179.github.io/DeamHomes.github.io/
+    base: isProd ? "/DeamHomes.github.io/" : "/",
+
+    plugins: [react()],
+
+    server: {
+      port: 5173,
+      proxy: {
+        "/api": {
+          target: "http://localhost:4000",
+          changeOrigin: true,
         },
       },
     },
-    commonjsOptions: {
-      include: [/node_modules/],
+
+    resolve: {
+      alias: {
+        "@": resolve(__dirname, "src"),
+      },
     },
-  },
-  optimizeDeps: {
-    include: ["react-helmet-async"],
-  },
+
+    build: {
+      outDir: "dist",
+      target: "es2019",
+      sourcemap: false,
+      chunkSizeWarningLimit: 1500,
+      rollupOptions: {
+        output: {
+          // Split a few heavy libs so the main bundle isn’t huge
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              if (id.includes("react-helmet-async")) return "react-helmet-async";
+              if (id.includes("react-router")) return "react-router";
+              if (id.includes("framer-motion")) return "framer-motion";
+            }
+          },
+        },
+      },
+      commonjsOptions: {
+        include: [/node_modules/],
+      },
+    },
+
+    optimizeDeps: {
+      // Pre-bundle to avoid initial “cannot resolve” hiccups
+      include: ["react-helmet-async"],
+    },
+  };
 });
