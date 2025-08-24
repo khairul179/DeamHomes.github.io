@@ -12,8 +12,7 @@ export default defineConfig(({ mode }) => {
   const isProd = mode === "production";
 
   return {
-    // Correct base for GitHub Pages project site:
-    // https://khairul179.github.io/DeamHomes.github.io/
+    // Correct base for GH Pages project site
     base: isProd ? "/DeamHomes.github.io/" : "/",
 
     plugins: [react()],
@@ -21,10 +20,7 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 5173,
       proxy: {
-        "/api": {
-          target: "http://localhost:4000",
-          changeOrigin: true,
-        },
+        "/api": { target: "http://localhost:4000", changeOrigin: true },
       },
     },
 
@@ -41,7 +37,7 @@ export default defineConfig(({ mode }) => {
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
         output: {
-          // Split a few heavy libs so the main bundle isn’t huge
+          // split a few heavy libs so main bundle isn't huge
           manualChunks(id) {
             if (id.includes("node_modules")) {
               if (id.includes("react-helmet-async")) return "react-helmet-async";
@@ -56,8 +52,8 @@ export default defineConfig(({ mode }) => {
       },
     },
 
+    // pre-bundle to avoid initial resolve hiccups
     optimizeDeps: {
-      // Pre-bundle to avoid initial “cannot resolve” hiccups
       include: ["react-helmet-async"],
     },
   };
