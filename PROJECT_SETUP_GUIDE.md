@@ -112,8 +112,8 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 # Clone the repository
-git clone https://github.com/AKHAIRUL412/Real-Estate-Website.git
-cd Real-Estate-Website
+git clone https://github.com/KHAIRUL412/dreamhomes-Website.git
+cd dreamhomes-Website
 
 # Install all dependencies
 npm run setup
@@ -133,8 +133,8 @@ This will start:
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/AKHAIRUL412/Real-Estate-Website.git
-cd Real-Estate-Website
+git clone https://github.com/KHAIRUL412/dreamhomes-Website.git
+cd dreamhomes-Website
 ```
 
 ### Step 2: Backend Setup
@@ -541,8 +541,8 @@ DreamHomes/
 
 For support and questions:
 
-- **GitHub Issues**: [Create an issue](https://github.com/AKHAIRUL412/Real-Estate-Website/issues)
-- **Email**: aKHAIRULvaghela12@gmail.com
+- **GitHub Issues**: [Create an issue](https://github.com/KHAIRUL412/dreamhomes-Website/issues)
+- **Email**: KHAIRULvaghela12@gmail.com
 - **Documentation**: Check README.md files in each directory
 
 ---
@@ -554,6 +554,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-  <p>Made with ❤️ by <a href="https://github.com/AKHAIRUL412">AKHAIRUL Vaghela</a></p>
+  <p>Made with ❤️ by <a href="https://github.com/KHAIRUL412">KHAIRUL Vaghela</a></p>
   <p>⭐ If you found this project helpful, please give it a star!</p>
 </div>

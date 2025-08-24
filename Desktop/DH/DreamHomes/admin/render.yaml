@@ -6,7 +6,7 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: VITE_BACKEND_URL
-        value: https://dreamhomes-website-backend-fullcode.onrender.com
+        value: https://dreamhomes-backend.onrender.com
     routes:
       - type: rewrite
         source: /*
